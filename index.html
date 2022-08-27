@@ -4,25 +4,59 @@
 <head>
     <meta charset="utf-8">
     <title>Project Section</title>
-    <link rel="stylesheet" type="text/css" href="asset/style.css" >
+    <link rel="stylesheet" type="text/css" href="asset/css/style.css">
 </head>
 
 <body>
 
     <section id="project">
-         <div class="project-heading">
+        <div class="project-heading">
             <span>Let's See My Work</span>
             <h3>My Projects</h3>
-         </div>
+        </div>
 
-         <ul class="project-filter">
-                <li class="list project-filter-active">All</li>
-                <li class="list">Appliction</li>
-                <li class="list">App Desing</li>
-                <li class="list">Website Desing</li>
-                <li class="list">Ai</li>
-         </ul>
+        <ul class="project-filter">
+            <li class="list project-filter-active" data-filter="all">All</li>
+            <li class="list" data-filter="app">Appliction</li>
+            <li class="list" data-filter="desing">App Desing</li>
+            <li class="list" data-filter="web">Website Desing</li>
+            <li class="list" data-filter="ai">Ai</li>
+        </ul>
+        <!-- container -->
+        <div class="project-container">
 
+            <!-- 1 (all)-->
+            <a href="" class="project-box app">
+                <img src="asset/images/image.png" alt="">
+            </a>
+
+             <!-- 2 (app)-->
+             <a href="" class="project-box web">
+                <img src="asset/images/image2.jpg" alt="">
+            </a>
+
+             <!-- 3 (desing)-->
+             <a href="" class="project-box ai">
+                <img src="asset/images/image3.jpg" alt="">
+            </a>
+
+             <!-- 4 (web)-->
+             <a href="" class="project-box desing">
+                <img src="asset/images/image4.jpg" alt="">
+            </a>
+
+             <!-- 5 (ai)-->
+             <a href="" class="project-box desing">
+                <img src="asset/images/image5.jpg" alt="">
+            </a>
+
+             <!-- 6 -->
+             <a href="" class="project-box app">
+                <img src="asset/images/image6.jpg" alt="">
+            </a>
+
+
+        </div>
 
     </section>
 
@@ -30,8 +64,20 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
 
-        $(document).on('click','.project-filter li',function(){
+        $(document).on('click', '.project-filter li', function () {
             $(this).addClass('project-filter-active').siblings().removeClass('project-filter-active')
+        })
+
+        $(document).ready(function(){
+            $('.list').click(function(){
+                const val =$(this).attr('data-filter');
+                if(val =='all'){
+                    $('.project-box').show('1000');
+                }else{
+                    $('.project-box').not('.'+val).hide('1000');
+                    $('.project-box').filter('.'+val).show('1000');                    
+                }
+            })
         })
 
     </script>
