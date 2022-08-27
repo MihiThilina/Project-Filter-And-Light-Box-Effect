@@ -27,6 +27,14 @@
     </section>
 
     <!-- using jquery -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).on('click','.project-filter li',function(){
+            $(this).addClass('project-filter-active').siblings().removeClass('project-filter-active')
+        })
+
+    </script>
 
 </body>
 
